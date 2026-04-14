@@ -1,12 +1,16 @@
 // proxy.ts
 import createMiddleware from 'next-intl/middleware'
+import type { NextRequest } from 'next/server'
 import { routing } from './i18n/routing'
 
-export default createMiddleware(routing)
+const handler = createMiddleware(routing)
+
+export function proxy(request: NextRequest) {
+  return handler(request)
+}
 
 export const config = {
   matcher: [
-    // Match all paths except: studio, api, _next internals, and files with extensions
     '/((?!studio|api|_next/static|_next/image|favicon.ico).*)',
   ],
 }
