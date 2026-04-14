@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:next-intl.dev)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "WebFetch(domain:www.npmjs.com)",
+      "Read(//Users/shilin/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.5/skills/subagent-driven-development/**)",
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run:*)",
+      "Bash(git rm:*)",
+      "Bash(node -e \"const r = require\\('./i18n/routing.ts'\\); console.log\\(r\\)\")",
+      "Bash(echo \"exit: $?\")"
+    ]
+  }
+}
