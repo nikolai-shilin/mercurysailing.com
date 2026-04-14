@@ -12,7 +12,17 @@
       "Bash(npm run:*)",
       "Bash(git rm:*)",
       "Bash(node -e \"const r = require\\('./i18n/routing.ts'\\); console.log\\(r\\)\")",
-      "Bash(echo \"exit: $?\")"
+      "Bash(echo \"exit: $?\")",
+      "Bash(python3 -c \"import json,sys; data=json.load\\(sys.stdin\\); courses=[c for c in data if isinstance\\(c,dict\\) and c.get\\('slug'\\)=='iyt-international-bareboat-skipper-online']; print\\(json.dumps\\(courses, ensure_ascii=False, indent=2\\)\\)\")",
+      "Bash(grep -E \"SANITY_PROJECT_ID|SANITY_DATASET\" /Users/shilin/Developer/mercurysailing.com/.env*)",
+      "mcp__Sanity__create_documents_from_json",
+      "Bash(python3 -c \"import json,sys; data=json.load\\(sys.stdin\\); courses=[c for c in data if isinstance\\(c,dict\\) and c.get\\('slug'\\)=='iyt-bareboat-skipper-practice']; print\\(json.dumps\\(courses, ensure_ascii=False, indent=2\\)\\)\")",
+      "Bash(python3 -c \"import json,sys; data=json.load\\(sys.stdin\\); [print\\(c.get\\('slug'\\)\\) for c in data if isinstance\\(c,dict\\)]\")",
+      "Bash(grep:*)",
+      "mcp__Sanity__query_documents",
+      "mcp__Sanity__list_datasets",
+      "mcp__Sanity__patch_document_from_json",
+      "Bash(npx sanity:*)"
     ]
   }
 }
