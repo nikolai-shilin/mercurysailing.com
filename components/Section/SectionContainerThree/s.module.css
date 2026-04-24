@@ -1,0 +1,24 @@
+.container {
+  padding-left: var(--spacing-xs);
+  padding-right: var(--spacing-xs);
+  flex: 100;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-sm);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--spacing-md);
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
+  }
+}

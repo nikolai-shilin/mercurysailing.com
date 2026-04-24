@@ -5,5 +5,11 @@
   },
   "nav": {
     "home": "Home"
+  },
+  "home": {
+    "heading": "Sailing courses",
+    "subheading": "Workations, vacations, and regattas across the Mediterranean.",
+    "empty": "No courses available yet.",
+    "duration": "{days, plural, one {# day} other {# days}}"
   }
 }

@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  /* line-height: 0; */
+}
+
+.logo {
+  scale: 1;
+  transition: all 0.3s ease;
+  line-height: 0;
+}
+
+.logo:hover {
+  scale: 1.05;
+  cursor: pointer;
+}
+.logoSubtext {
+  /* line-height: 0; */
+  font-size: 0.75rem;
+  font-family: var(--font-lato);
+  font-weight: var(--font-weight-lato);
+  text-transform: uppercase;
+  color: var(--color-text-on-white);
+}
+.logoLink {
+  text-decoration: none;
+}

@@ -1,0 +1,14 @@
+.container, .containerVertical {
+  display: flex; 
+  flex-direction: column; 
+  gap: 1.5rem;
+  width: 100%; 
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+@media (min-width: 640px) {
+  .container {
+    flex-direction: row;
+  }
+}

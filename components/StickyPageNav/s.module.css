@@ -1,0 +1,92 @@
+/* Desktop-only sticky in-page navigation. Hidden below 768px.
+ * Visual language mirrors components/Nav/Nav.tsx:
+ *   - small uppercase Lato (.75rem)
+ *   - 2px border-left hover affordance
+ *   - no heavy chrome — just a thin blur + hairline border
+ */
+
+.wrap {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .wrap {
+    display: block;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-6px);
+    transition: opacity 200ms ease-out, transform 200ms ease-out;
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    background: rgba(13, 17, 19, 0.55);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .wrap.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+    padding: 0.875rem var(--spacing-md);
+    line-height: 1;
+  }
+
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Mirrors .item from components/Nav/s.module.css */
+  .link {
+    display: inline-block;
+    color: var(--color-white);
+    font-family: var(--font-lato);
+    font-weight: var(--font-weight-lato);
+    font-size: 0.75rem;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    padding-left: 0.25rem;
+    border-left: 2px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    transition: border-color 120ms ease-out;
+  }
+
+  .link:visited {
+    color: var(--color-white);
+  }
+
+  .link:hover,
+  .link:focus-visible,
+  .link:active {
+    color: var(--color-white);
+    border-left-color: var(--color-white);
+    outline: none;
+  }
+
+  /* CTA is rendered via the shared <Button> component for visual consistency
+   * with the rest of the site's call-to-action buttons — so no bespoke .cta
+   * styles live here. */
+}
+
+@media (min-width: 1440px) {
+  .inner {
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
+  }
+}

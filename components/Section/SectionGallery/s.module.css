@@ -1,0 +1,131 @@
+.container {
+  overflow: scroll;
+  scroll-snap-type: block;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+    scroll-padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: var(--spacing-sm);
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.slide:first-child {
+  margin-left: var(--spacing-xs);
+}
+
+.slide:last-child {
+  margin-right: var(--spacing-xs);
+}
+
+
+.image {
+  min-width: 320px;
+  height: auto;
+  aspect-ratio: 1/1;
+  position: relative;
+  overflow: hidden;
+  border-radius: calc(var(--spacing-sm) * var(--brm));
+  corner-shape: squircle;
+  filter: sepia(25%) brightness(0.9);
+  scale: 1;
+  transition: filter 0.3s ease, scale 0.3s ease;
+  cursor: pointer;
+}
+
+.image:hover, .image:focus, .image:active {
+  filter: sepia(0%) brightness(1);
+  scale: 0.99;
+}
+
+.image img {
+  transition: object-position 0.3s ease;
+}
+
+.image:hover img,
+.image:focus img,
+.image:active img {
+  object-position: 49% 48%;
+}
+
+.text {
+  font-size: 1rem;
+  line-height: 1.25;
+  width: 100%;
+  /* padding-left: 40px; */
+    /* @TODO: find if that works */
+}
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.productChip {
+  display: block;
+  width: fit-content;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.375rem 0.5rem;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  margin-bottom: 0.5rem;
+  opacity: 0.75;
+  line-height: 1;
+}
+
+
+@media (min-width: 768px) {
+  .slide {
+      max-width: 600px;
+    }
+  .slide:first-child {
+    margin-left: var(--spacing-md);
+  }
+  .slide:last-child {
+    margin-right: var(--spacing-md);
+  }
+
+  .image {
+    min-width: 600px;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+
+  .text {
+    max-width: 66%;
+  }
+}
+
+@media (min-width: 1440px) {
+
+  .slide {
+      max-width: 800px;
+    }
+  .slide:first-child {
+    margin-left: var(--spacing-lg);
+  }
+  .slide:last-child {
+    margin-right: var(--spacing-lg);
+  }
+  .image {
+    min-width: 800px;
+    height: auto;
+  }
+}

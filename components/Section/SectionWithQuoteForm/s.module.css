@@ -1,0 +1,26 @@
+.formSlot {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxs);
+}
+
+.successTitle {
+  font-family: var(--font-merriweather);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--color-black);
+  margin: 0;
+}
+
+.successText {
+  font-family: var(--font-lato);
+  font-size: 1rem;
+  color: var(--color-black);
+  margin: 0;
+}

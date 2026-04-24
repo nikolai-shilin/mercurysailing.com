@@ -1,0 +1,105 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  width: 100%;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+
+.guestInput {
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+  gap: var(--spacing-xxs);
+  width: 100%;
+}
+
+.guestInputText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxs);
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.guestInputTextHeaderTitle {
+  font-size: 2rem;
+  font-family: var(--font-merriweather);
+  font-weight: var(--font-weight-merriweather);
+  color: var(--color-black);
+  line-height: 1;
+}
+
+
+.guestInputTextDescription {
+  font-family: var(--font-lato);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--color-black);
+}
+
+.inputText {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--color-text);
+  border-radius: var(--spacing-xxs);
+  font-size: 1rem;
+  font-family: var(--font-lato);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.inputText:active,
+.inputText:focus {
+  border-color: var(--color-blue);
+  outline: none;
+}
+
+textarea.inputText {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+/* Select: custom arrow with fixed placement (right, vertically centered) */
+select.inputText {
+  padding-right: 2.25rem;
+  min-height: 2.75rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none' stroke='%236d7a7e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 4.5 L6 8 L9 4.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 0.75rem 0.75rem;
+}
+
+.inputLabel {
+  font-size: 0.75rem;
+  font-family: var(--font-lato);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-black);
+  
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxs);
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.controlAddRemove {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-xxs);
+}
+.controlScroll {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-xxs);
+}

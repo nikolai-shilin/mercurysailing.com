@@ -1,0 +1,40 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table tr {
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.table th {
+  font-weight: 900;
+  padding: 1rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.table td {
+  padding: 1rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.title {
+  font-size: 0.875rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+
+.description {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

@@ -1,54 +1,45 @@
-import Image from "next/image";
-import styles from "../page.module.css";
+import { getTranslations } from 'next-intl/server'
+import { sanityFetch } from '../../sanity/lib/live'
+import { CoursesGallery, type CourseCard } from '../../components/CoursesGallery'
+import { routing, type Locale } from '../../i18n/routing'
+
+const COURSES_QUERY = `*[_type == "course" && defined(slug.current)] | order(_createdAt desc){
+  "slug": slug.current,
+  type,
+  "title": header.title[$locale],
+  "description": header.description[$locale],
+  "place": place[$locale],
+  "country": country[$locale],
+  duration,
+  "image": header.image
+}`
 
 export default async function Home({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: string }>
 }) {
-  const { locale } = await params;
+  const { locale: rawLocale } = await params
+  const locale = (routing.locales as readonly string[]).includes(rawLocale)
+    ? (rawLocale as Locale)
+    : routing.defaultLocale
+
+  const [t, { data: courses }] = await Promise.all([
+    getTranslations({ locale, namespace: 'home' }),
+    sanityFetch({
+      query: COURSES_QUERY,
+      params: { locale },
+    }) as Promise<{ data: CourseCard[] }>,
+  ])
 
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>Locale: {locale}</p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+    <CoursesGallery
+      locale={locale}
+      courses={courses ?? []}
+      heading={t('heading')}
+      subheading={t('subheading')}
+      emptyText={t('empty')}
+      durationLabel={(days) => t('duration', { days })}
+    />
+  )
 }

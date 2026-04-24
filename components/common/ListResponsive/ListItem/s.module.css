@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-family: var(--font-merriweather);
+  font-weight: var(--font-weight-merriweather);
+  line-height: 1;
+}
+
+.subtitle {
+  font-style: italic;
+}
+
+.short {
+  font-size: 1.25rem;
+  font-family: var(--font-merriweather);
+  font-weight: var(--font-weight-merriweather);
+  line-height: 1.25;
+}
+
+.long {
+  font-size: 1rem;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.index {
+  display: inline-block;
+}
+
+@media (min-width: 1280px) {
+  .long {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+}
